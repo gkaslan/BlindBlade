@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://p83wlx82co6g"]
+
+[ext_resource type="Script" uid="uid://6omlud0tyihb" path="res://player.gd" id="1_3mbdw"]
+[ext_resource type="Script" uid="uid://b6k84synm01th" path="res://dojo.gd" id="1_fjxri"]
+[ext_resource type="Script" uid="uid://bbsk10oxigxoa" path="res://wall.gd" id="2_bko5t"]
+[ext_resource type="Script" uid="uid://eu1t6qhly2tc" path="res://wall_2.gd" id="3_fjxri"]
+[ext_resource type="Script" uid="uid://oq7ww0jmmrwl" path="res://wall_3.gd" id="4_idlrw"]
+[ext_resource type="Script" uid="uid://clwsfhhvrelnf" path="res://wall_4.gd" id="5_l8ey8"]
+[ext_resource type="Script" uid="uid://b3xsd41l5e4qj" path="res://spawner.gd" id="7_idlrw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wvam"]
+size = Vector2(32, 32)
+
+[sub_resource type="Gradient" id="Gradient_n3qi6"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6wvam"]
+gradient = SubResource("Gradient_n3qi6")
+width = 112
+height = 112
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mbdw"]
+size = Vector2(720, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ghdi"]
+size = Vector2(720, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qiymp"]
+size = Vector2(520, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3qi6"]
+size = Vector2(520, 20)
+
+[node name="Dojo" type="Node2D" unique_id=1010638199]
+script = ExtResource("1_fjxri")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1139330826]
+script = ExtResource("1_3mbdw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=841153220]
+shape = SubResource("RectangleShape2D_6wvam")
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=253859028]
+texture = SubResource("GradientTexture2D_6wvam")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1296339524]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=531719653]
+scale = Vector2(1.7, 1.7)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1494891218]
+color = Color(0, 0, 0, 1)
+
+[node name="wall" type="StaticBody2D" parent="." unique_id=475624737]
+position = Vector2(0, -250)
+script = ExtResource("2_bko5t")
+
+[node name="ColorRect" type="ColorRect" parent="wall" unique_id=1321359752]
+offset_left = -360.0
+offset_top = -10.0
+offset_right = 360.0
+offset_bottom = 10.0
+color = Color(0, 1, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall" unique_id=2131284279]
+position = Vector2(0, -1)
+scale = Vector2(1e-05, 1e-05)
+shape = SubResource("RectangleShape2D_3mbdw")
+
+[node name="wall2" type="StaticBody2D" parent="." unique_id=1141065635]
+position = Vector2(0, 250)
+script = ExtResource("3_fjxri")
+
+[node name="ColorRect" type="ColorRect" parent="wall2" unique_id=661564015]
+offset_left = -360.0
+offset_top = -10.0
+offset_right = 360.0
+offset_bottom = 10.0
+color = Color(0, 1, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall2" unique_id=1226428519]
+position = Vector2(0, -1)
+scale = Vector2(1e-05, 1e-05)
+shape = SubResource("RectangleShape2D_8ghdi")
+
+[node name="wall3" type="StaticBody2D" parent="." unique_id=978347079]
+position = Vector2(350, 0)
+rotation = 1.5707964
+script = ExtResource("4_idlrw")
+
+[node name="ColorRect" type="ColorRect" parent="wall3" unique_id=507958585]
+offset_left = -260.0
+offset_top = -10.0
+offset_right = 260.0
+offset_bottom = 10.0
+color = Color(0, 1, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall3" unique_id=1981730061]
+position = Vector2(0, -1)
+scale = Vector2(1e-05, 1e-05)
+shape = SubResource("RectangleShape2D_qiymp")
+
+[node name="wall4" type="StaticBody2D" parent="." unique_id=393109595]
+position = Vector2(-350, 0)
+rotation = 1.5707964
+script = ExtResource("5_l8ey8")
+
+[node name="ColorRect" type="ColorRect" parent="wall4" unique_id=1868145263]
+offset_left = -260.0
+offset_top = -10.0
+offset_right = 260.0
+offset_bottom = 10.0
+color = Color(0, 1, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall4" unique_id=821570913]
+position = Vector2(0, -1)
+scale = Vector2(1e-05, 1e-05)
+shape = SubResource("RectangleShape2D_n3qi6")
+
+[node name="Spawner" type="Node" parent="." unique_id=1037641592]
+script = ExtResource("7_idlrw")

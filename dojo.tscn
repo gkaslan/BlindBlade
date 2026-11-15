@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://p83wlx82co6g"]
+
+[ext_resource type="Script" uid="uid://6omlud0tyihb" path="res://player.gd" id="1_3mbdw"]
+[ext_resource type="Script" uid="uid://b6k84synm01th" path="res://dojo.gd" id="1_fjxri"]
+[ext_resource type="Script" uid="uid://b3xsd41l5e4qj" path="res://spawner.gd" id="7_idlrw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wvam"]
+size = Vector2(32, 32)
+
+[sub_resource type="Gradient" id="Gradient_n3qi6"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6wvam"]
+gradient = SubResource("Gradient_n3qi6")
+width = 160
+height = 160
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Dojo" type="Node2D" unique_id=1010638199]
+script = ExtResource("1_fjxri")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1139330826]
+script = ExtResource("1_3mbdw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=841153220]
+shape = SubResource("RectangleShape2D_6wvam")
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=253859028]
+texture = SubResource("GradientTexture2D_6wvam")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1296339524]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=531719653]
+scale = Vector2(2.1, 2.1)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1494891218]
+color = Color(0, 0, 0, 1)
+
+[node name="Spawner" type="Node" parent="." unique_id=1037641592]
+script = ExtResource("7_idlrw")

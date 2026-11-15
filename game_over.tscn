@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://tao2crss2dy3"]
+
+[ext_resource type="Script" uid="uid://bfsbvwwms3uax" path="res://game_over.gd" id="1_y26ei"]
+
+[node name="Gameover" type="Control" unique_id=603160287]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_y26ei")

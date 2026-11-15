@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dtrdecpimmaqb"]
+
+[ext_resource type="Script" uid="uid://y8bpqvuhtbsm" path="res://enemy.gd" id="1_7k104"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7k104"]
+
+[node name="Enemy" type="Node2D" unique_id=1343082461]
+scale = Vector2(10, 10)
+script = ExtResource("1_7k104")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1981448106]
+sprite_frames = SubResource("SpriteFrames_7k104")
